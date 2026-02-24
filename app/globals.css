@@ -49,8 +49,8 @@
 @layer base {
 
     body{
-        @apply bg-[#F8F8F8];
-        /* @apply bg-black; */
+        /* @apply bg-[#F8F8F8]; */
+        @apply bg-black;
     }
 
     h1,h2,h3,h4,h5,p.t12,p.t13,p.t14,p.t15,p.t16,p.t18,p.t20,p.t22,p.t24{
@@ -152,5 +152,14 @@
 
     .btn-anim:hover .btn-label-secondary {
         @apply translate-y-0 skew-y-0;
+    }
+
+    button.tag-link {
+        @apply text-black py-1.5 px-3.5 rounded-full bg-white
+    }
+
+
+    .animation{
+        @apply transition duration-300 ease-in-out;
     }
 }

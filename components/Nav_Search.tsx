@@ -9,7 +9,7 @@ export default function Nav_Search({ variant = "search1" }: SearchProps) {
     return (
         <>
             <div className={clsx(
-                "w-[37px] h-[36px] hover:cursor-pointer hover:scale-110 flex justify-center transition duration-200 items-center flex-wrap rounded-full",
+                "w-9.25 h-9 hover:cursor-pointer hover:scale-110 flex justify-center transition duration-200 items-center flex-wrap rounded-full",
                 {
                     "bg-white-15 hover:bg-white-30 ": variant === "search1",
                     "bg-white hover:bg-white-20": variant === "search2",
