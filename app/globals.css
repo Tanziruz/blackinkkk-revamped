@@ -5,7 +5,7 @@
     src: url(/assets/fonts/Inter_24pt-BoldItalic.ttf) format("truetype");
 }
 
-@font-face{
+@font-face {
     font-family: Ronzino-Medium;
     src: url(/assets/fonts/Ronzino-Medium.otf) format("opentype");
 }
@@ -25,4 +25,92 @@
     --font-Ronzino-Medium: Ronzino-Medium, sans-serif;
     --font-Ronzino-Oblique: Ronzino-Oblique, sans-serif;
     --font-Fino: Fino-Sans, sans-serif;
+    --color-gray: #787878;
+    --color-white-15: rgba(255, 255, 255, 0.15);
+    --color-white-20: rgba(255, 255, 255, 0.20);
+    --color-white-30: rgba(255, 255, 255, 0.30);
+    --color-white-40: rgba(255, 255, 255, 0.40);
+    --color-white-50: rgba(255, 255, 255, 0.50);
+    --color-white-60: rgba(255, 255, 255, 0.60);
+    --color-white-80: rgba(255, 255, 255, 0.80);
+    --color-black-10: rgba(0, 0, 0, 0.10);
+    --color-black-15: rgba(0, 0, 0, 0.15);
+    --color-black-30: rgba(0, 0, 0, 0.30);
+    --color-black-40: rgba(0, 0, 0, 0.40);
+    --color-black-70: rgba(0, 0, 0, 0.70);
+    --color-black-80: rgba(0, 0, 0, 0.80);
+    --color-dark-1: #1F1F1F;
+    --color-gray-2: #A1A1A1;
+    --color-beige: #EEEEEE;
+    --color-orange: #FF6A00;
+
+}
+
+@layer base {
+
+    body{
+        @apply bg-[#F8F8F8];
+    }
+
+    h1,h2,h3,h4,h5,p.t12,p.t13,p.t14,p.t15,p.t16,p.t18,p.t20,p.t22,p.t24{
+        @apply min-w-0 md:min-w-[202.5px] lg:min-w-300;
+    }
+
+    h1{
+        @apply font-Ronzino-Medium text-white text-4xl md:text-[56px] lg:text-[62px] tracking-[-0.03em] leading-[1.12em];
+    }
+
+    h2{
+        @apply font-Ronzino-Medium text-black text-3xl md:text-[44px] lg:text-[48px] tracking-[-0.03em] leading-[1.165em] mb-10;  
+    }
+
+    h3{
+        @apply font-Ronzino-Medium text-black text-[28px] md:text-[35px] lg:text-[44px] tracking-[-0.03em] leading-[1.18em] mb-10;
+    }
+
+    h4{
+        @apply font-Ronzino-Medium text-black text-[26px] md:text-[34px] lg:text-[36px] tracking-[-0.03em] leading-[1.22em] mb-10;
+    }
+
+    h5{
+        @apply font-Ronzino-Medium text-black text-[22px] md:text-[28px] lg:text-[32px] tracking-[-0.03em] leading-[1.28em] mb-10;
+    }
+
+    p.t12{
+        @apply font-Inter text-white text-[12px] md:text-[10px] lg:text-[12px] tracking-[-0.035em] leading-[1.3em] mb-5;
+    }
+
+    p.t13{
+        @apply font-Ronzino-Medium text-white text-[12px]  lg:text-[13px] tracking-[-0.025em] leading-[1.4em] mb-5;
+    }
+
+    p.t14{
+        @apply font-Ronzino-Medium text-gray text-[11px] lg:text-[14px] tracking-[-0.03em] leading-[1.5em] mb-5;
+    }
+
+    p.t15{
+        @apply font-Ronzino-Medium text-gray text-[15px] tracking-[-0.035em] leading-[1.5em] mb-5;
+    }
+
+    p.t16{
+        @apply font-Ronzino-Medium text-[#6E6E6E] text-[16px] tracking-[-0.03em] leading-[1.55em] mb-5;
+    }
+
+    p.t18{
+        @apply font-Ronzino-Medium text-gray text-[16px] lg:text-[18px] tracking-[-0.03em] leading-[1.5em] mb-6;
+    }
+
+    p.t20{
+        @apply font-Ronzino-Medium text-black text-[20px] tracking-[-0.03em] leading-[1.4em] mb-5;
+    }
+
+    p.t22{
+        @apply font-Ronzino-Medium text-black text-[22px] tracking-[-0.03em] leading-[1.5em] mb-5;
+    }
+
+    p.t24{
+        @apply font-Ronzino-Oblique text-black text-[24px] tracking-[0em] leading-[1.55em] mb-5;
+    }
+
+    
 }
