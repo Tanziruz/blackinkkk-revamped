@@ -1,3 +1,5 @@
+import { Recycle } from "lucide-react";
+import FeatureCard from "../Cards/FeatureCard";
 
 export default function Home(){
     return (
@@ -5,6 +7,7 @@ export default function Home(){
         <section className="h-dvh max-w-screen w-full overflow-x-hidden flex flex-col justify-center items-center">
             <h1 className="text-center">Premium Wear For Modern Living</h1>
             <p className="t18 text-center"  >Discover our new range of soft clothes made for your daily look and your best days with the finest fabrics.</p>
+            <FeatureCard title="Sustainable Materials" icon={Recycle} info="Our commitment to sustainability means we use eco-friendly materials and ethical production practices to create stylish, high-quality clothing that you can feel good about wearing."/>
         </section>
         </>
     );
