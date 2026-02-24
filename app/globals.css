@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: Ronzino-Medium;
-    src: url(/assets/fonts/Ronzino-Medium.otf) format("opentype");
+    src: url(/assets/fonts/Ronzino-Medium.woff2) format("woff2");
 }
 
 @font-face {
@@ -35,6 +35,7 @@
     --color-white-80: rgba(255, 255, 255, 0.80);
     --color-black-10: rgba(0, 0, 0, 0.10);
     --color-black-15: rgba(0, 0, 0, 0.15);
+    --color-black-20: rgba(0, 0, 0, 0.20);
     --color-black-30: rgba(0, 0, 0, 0.30);
     --color-black-40: rgba(0, 0, 0, 0.40);
     --color-black-70: rgba(0, 0, 0, 0.70);
@@ -49,8 +50,8 @@
 @layer base {
 
     body{
-        /* @apply bg-[#F8F8F8]; */
-        @apply bg-black;
+        @apply bg-[#F8F8F8];
+        /* @apply bg-black; */
     }
 
     h1,h2,h3,h4,h5,p.t12,p.t13,p.t14,p.t15,p.t16,p.t18,p.t20,p.t22,p.t24{
@@ -105,7 +106,7 @@
         @apply font-Ronzino-Medium text-black text-[20px] tracking-[-0.03em] leading-[1.4em] mb-5;
     }
 
-    p.t22{
+    .t22{
         @apply font-Ronzino-Medium text-black text-[22px] tracking-[-0.03em] leading-[1.5em] mb-5;
     }
 
