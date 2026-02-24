@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import type { LucideIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 interface SearchProps {
     variant?: "variant1" | "variant2";
