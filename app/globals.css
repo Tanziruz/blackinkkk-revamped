@@ -50,6 +50,7 @@
 
     body{
         @apply bg-[#F8F8F8];
+        /* @apply bg-black; */
     }
 
     h1,h2,h3,h4,h5,p.t12,p.t13,p.t14,p.t15,p.t16,p.t18,p.t20,p.t22,p.t24{
@@ -112,5 +113,44 @@
         @apply font-Ronzino-Oblique text-black text-[24px] tracking-[0em] leading-[1.55em] mb-5;
     }
 
+    button.btn1 {
+        @apply bg-white font-Inter text-black text-[15px] tracking-[0.03em] leading-[1.55em] rounded-3xl transition duration-300 ease-in-out hover:bg-gray-200 py-2 px-3.75;
+    }
+
+    button.btn2{
+        @apply bg-black rounded-3xl hover:cursor-pointer text-white py-2 px-3.75 font-Inter text-[15px] tracking-[-0.0035em] leading-[1.55em] transition duration-300 ease-in-out hover:bg-gray-800;
+    }
+
+    button.btn3{
+        @apply font-Inter text-white text-[15px] tracking-[-0.035em] leading-[1.55em] rounded-3xl bg-white-15 hover:cursor-pointer hover:bg-white-20 transition duration-300 py-2 px-3.75 ;
+    }
     
+    button.btn4{
+        @apply font-Inter text-white text-[18px] tracking-[-0.035em] leading-[1.55em] rounded-3xl bg-black hover:cursor-pointer hover:bg-black/90 transition duration-300 py-2 px-3.75 ;
+    }
+
+    /* Skew-slide text animation — requires two duplicate text divs inside a span.btn-label */
+    .btn-anim {
+        @apply relative z-10 w-fit cursor-pointer overflow-hidden;
+    }
+
+    .btn-label {
+        @apply relative inline-flex overflow-hidden;
+    }
+
+    .btn-label-primary {
+        @apply translate-y-0 skew-y-0 transition duration-500;
+    }
+
+    .btn-label-secondary {
+        @apply absolute translate-y-[164%] skew-y-12 transition duration-500;
+    }
+
+    .btn-anim:hover .btn-label-primary {
+        @apply translate-y-[-160%] skew-y-12;
+    }
+
+    .btn-anim:hover .btn-label-secondary {
+        @apply translate-y-0 skew-y-0;
+    }
 }
