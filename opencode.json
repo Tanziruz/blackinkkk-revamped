@@ -3,7 +3,7 @@
     "next-devtools": {
       "type": "local",
       "command": [
-        "npx",
+        "bunx",
         "-y",
         "next-devtools-mcp@lates"
       ],
