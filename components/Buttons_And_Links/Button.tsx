@@ -1,4 +1,4 @@
-type ButtonVariant = "btn1" | "btn2" | "btn3" | "btn4";
+type ButtonVariant = "btn1" | "btn2" | "btn3" | "btn4" | "tag-link";
 
 interface ButtonProps {
   title: string;

@@ -1,0 +1,130 @@
+[
+    {
+        "id": "prod-001",
+        "title": "Arctic Oversized Jacket",
+        "price": 129,
+        "originalPrice": 179,
+        "image_main": "/productd.avif",
+        "image_hover": "/productd_hover.avif",
+        "tag": "best-seller",
+        "includeHome": true
+    },
+    {
+        "id": "prod-002",
+        "title": "Shadow Drop Hoodie",
+        "price": 89,
+        "image_main": "/hover.avif",
+        "image_hover": "/full.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-003",
+        "title": "Dusk Relaxed Tee",
+        "price": 49,
+        "originalPrice": 65,
+        "image_main": "/full.avif",
+        "image_hover": "/hover.avif",
+        "includeHome": true
+    },
+    {
+        "id": "prod-004",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-005",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-006",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-007",
+        "title": "Arctic Oversized Jacket",
+        "price": 129,
+        "originalPrice": 179,
+        "image_main": "/productd.avif",
+        "image_hover": "/productd_hover.avif",
+        "tag": "best-seller",
+        "includeHome": true
+    },
+    {
+        "id": "prod-008",
+        "title": "Shadow Drop Hoodie",
+        "price": 89,
+        "image_main": "/hover.avif",
+        "image_hover": "/full.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-009",
+        "title": "Dusk Relaxed Tee",
+        "price": 49,
+        "originalPrice": 65,
+        "image_main": "/full.avif",
+        "image_hover": "/hover.avif",
+        "includeHome": true
+    },
+    {
+        "id": "prod-010",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-011",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-012",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-013",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    },
+    {
+        "id": "prod-014",
+        "title": "Noir Wide-Leg Trousers",
+        "price": 109,
+        "image_main": "/productd_hover.avif",
+        "image_hover": "/productd.avif",
+        "tag": "new",
+        "includeHome": true
+    }
+]

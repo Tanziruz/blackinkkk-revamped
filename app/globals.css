@@ -1,23 +1,25 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
 @import "tailwindcss";
 
 @font-face {
-    font-family: Inter;
-    src: url(/assets/fonts/Inter_24pt-BoldItalic.ttf) format("truetype");
-}
-
-@font-face {
     font-family: Ronzino-Medium;
-    src: url(/assets/fonts/Ronzino-Medium.otf) format("opentype");
+    src: url(/fonts/Ronzino-Medium.woff2) format("woff2");
 }
 
 @font-face {
     font-family: Ronzino-Oblique;
-    src: url(/assets/fonts/Ronzino-Oblique.otf) format("opentype");
+    src: url(/fonts/Ronzino-Oblique.otf) format("opentype");
 }
 
 @font-face {
     font-family: Fino-Sans;
-    src: url(/assets/fonts/Fino-Sans-Title-Regular.ttf) format("truetype");
+    src: url(/fonts/Fino-Sans-Title-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: KronaOne;
+    src: url(/fonts/KronaOne-Regular.ttf) format("truetype");
 }
 
 @theme{
@@ -25,6 +27,7 @@
     --font-Ronzino-Medium: Ronzino-Medium, sans-serif;
     --font-Ronzino-Oblique: Ronzino-Oblique, sans-serif;
     --font-Fino: Fino-Sans, sans-serif;
+    --font-Krona: KronaOne, sans-serif;
     --color-gray: #787878;
     --color-white-15: rgba(255, 255, 255, 0.15);
     --color-white-20: rgba(255, 255, 255, 0.20);
@@ -35,6 +38,7 @@
     --color-white-80: rgba(255, 255, 255, 0.80);
     --color-black-10: rgba(0, 0, 0, 0.10);
     --color-black-15: rgba(0, 0, 0, 0.15);
+    --color-black-20: rgba(0, 0, 0, 0.20);
     --color-black-30: rgba(0, 0, 0, 0.30);
     --color-black-40: rgba(0, 0, 0, 0.40);
     --color-black-70: rgba(0, 0, 0, 0.70);
@@ -43,18 +47,19 @@
     --color-gray-2: #A1A1A1;
     --color-beige: #EEEEEE;
     --color-orange: #FF6A00;
+    --color-bg: #F8F8F8;
 
 }
 
 @layer base {
 
     body{
-        @apply bg-[#F8F8F8];
+        @apply bg-bg;
         /* @apply bg-black; */
     }
 
     h1,h2,h3,h4,h5,p.t12,p.t13,p.t14,p.t15,p.t16,p.t18,p.t20,p.t22,p.t24{
-        @apply min-w-0 md:min-w-[202.5px] lg:min-w-300;
+        @apply min-w-0;
     }
 
     h1{
@@ -105,7 +110,7 @@
         @apply font-Ronzino-Medium text-black text-[20px] tracking-[-0.03em] leading-[1.4em] mb-5;
     }
 
-    p.t22{
+    .t22{
         @apply font-Ronzino-Medium text-black text-[22px] tracking-[-0.03em] leading-[1.5em] mb-5;
     }
 
@@ -114,24 +119,24 @@
     }
 
     button.btn1 {
-        @apply bg-white font-Inter text-black text-[15px] tracking-[0.03em] leading-[1.55em] rounded-3xl transition duration-300 ease-in-out hover:bg-gray-200 py-2 px-3.75;
+        @apply bg-white font-Inter text-black text-[15px] tracking-[-0.03em] leading-[1.55em] rounded-3xl transition duration-300 ease-in-out hover:bg-gray-200 py-2 px-3.75;
     }
 
     button.btn2{
-        @apply bg-black rounded-3xl hover:cursor-pointer text-white py-2 px-3.75 font-Inter text-[15px] tracking-[-0.0035em] leading-[1.55em] transition duration-300 ease-in-out hover:bg-gray-800;
+        @apply bg-black rounded-3xl hover:cursor-pointer text-white py-2 px-3.75 font-Inter text-[15px] tracking-[-0.03em] leading-[1.55em] transition duration-300 ease-in-out hover:bg-gray-800;
     }
 
     button.btn3{
-        @apply font-Inter text-white text-[15px] tracking-[-0.035em] leading-[1.55em] rounded-3xl bg-white-15 hover:cursor-pointer hover:bg-white-20 transition duration-300 py-2 px-3.75 ;
+        @apply font-Inter text-white text-[15px] tracking-[-0.03em] leading-[1.55em] rounded-3xl bg-white-15 hover:cursor-pointer hover:bg-white-20 transition duration-300 py-2 px-3.75 ;
     }
     
     button.btn4{
-        @apply font-Inter text-white text-[18px] tracking-[-0.035em] leading-[1.55em] rounded-3xl bg-black hover:cursor-pointer hover:bg-black/90 transition duration-300 py-2 px-3.75 ;
+        @apply font-Inter text-white text-[18px] tracking-[-0.03em] leading-[1.55em] rounded-3xl bg-black hover:cursor-pointer hover:bg-black/90 transition duration-300 py-2 px-3.75 ;
     }
 
     /* Skew-slide text animation — requires two duplicate text divs inside a span.btn-label */
     .btn-anim {
-        @apply relative z-10 w-fit cursor-pointer overflow-hidden;
+        @apply relative z-10 w-fit cursor-pointer overflow-hidden flex items-center gap-1.5 whitespace-nowrap;
     }
 
     .btn-label {
@@ -152,5 +157,54 @@
 
     .btn-anim:hover .btn-label-secondary {
         @apply translate-y-0 skew-y-0;
+    }
+
+    button.tag-link {
+        @apply text-black py-1.5 px-3.5 rounded-full bg-white
+    }
+
+
+    .animation{
+        @apply transition duration-300 ease-in-out;
+    }
+
+    /* 3D Carousel */
+    .carousel-stage {
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        touch-action: none;
+        cursor: grab;
+    }
+    .carousel-stage.dragging {
+        cursor: grabbing;
+    }
+    .carousel-cards {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+        z-index: 10;
+    }
+    .carousel-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: min(26vw, 300px);
+        aspect-ratio: 4/5;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        will-change: transform, filter;
+        contain: layout paint;
+    }
+    .carousel-card img {
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transform: translateZ(0);
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
     }
 }

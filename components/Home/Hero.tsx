@@ -1,0 +1,102 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Button from "../Buttons_And_Links/Button";
+
+const thumbnails = [
+  { src: "/1.avif",       label: "classNameic" },
+  { src: "/2.avif", label: "Shadow" },
+  { src: "/3.avif",          label: "Dusk" },
+  { src: "/HeroImg.avif",        label: "Arctic" },
+  { src: "/5.avif",           label: "Stone" },
+  { src: "/6.avif",       label: "Slate" },
+  { src: "/4.avif", label: "Noir" },
+];
+
+export default function Hero() {
+  const [activeIndex, setActiveIndex] = useState(3);
+
+  // Auto-advance every 5 seconds; reset timer when user clicks
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % thumbnails.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [activeIndex]);
+
+  const active = thumbnails[activeIndex];
+
+  return (
+    <section className="relative h-dvh w-full overflow-hidden flex flex-col justify-center items-center pb-32 pt-10">
+      <div className="absolute inset-0 -z-10 ">
+        <Image
+          key={active.src + activeIndex}
+          src={active.src}
+          alt="Hero Image"
+          fill
+          priority
+          className="object-cover object-center transition-opacity duration-700"
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5 backdrop-blur-3xl mask-[linear-gradient(to_bottom,transparent,black)]" />
+      </div>
+
+      <div className="flex flex-col items-center gap-3 w-full max-w-155 px-5 text-center">
+        <div className="w-fit bg-white-15 backdrop-blur-sm rounded-full px-3.5 py-1.5">
+          <p className="font-Ronzino-Medium text-white text-[12px] lg:text-[13px] tracking-[-0.025em] leading-[1.4em] mb-0!">
+            Unisex Oversized
+          </p>
+        </div>
+
+        <h1 className="text-center text-6xl">Premium wear<br />for modern living</h1>
+
+        <p className="t18 text-white-80! text-center mb-3">
+          Discover our new range of soft clothes made for your daily <br /> look and
+          your best days with the finest fabrics.
+        </p>
+
+        <div className="flex items-center justify-center gap-2.5 pt-1">
+          <Button variant="btn1" title="See all collections" />
+          <Button variant="btn3" title="Contact us" />
+        </div>
+      </div>
+
+      {/* Thumbnail strip */}
+      <div className="absolute bottom-4 left-0 right-0 flex items-end justify-center gap-0.5 px-4 overflow-x-auto">
+        {thumbnails.map((thumb, i) => {
+          const isActive = i === activeIndex;
+          return (
+            <div
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`shrink-0 flex flex-col items-center gap-1 cursor-pointer transition-opacity ${
+                isActive ? "opacity-100" : "opacity-50 hover:opacity-75"
+              }`}
+            >
+              <div
+                className={`relative  overflow-hidden border-2 transition-all duration-300 ${
+                  isActive
+                    ? "border-white w-20 h-25 md:w-22.5 md:h-28"
+                    : "border-transparent w-16.25 h-21 md:w-18.75 md:h-24"
+                }`}
+              >
+                <Image
+                  src={thumb.src}
+                  alt={thumb.label}
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+              {isActive && (
+                <span className="text-white text-[11px] font-medium tracking-wide">
+                  {thumb.label}
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
