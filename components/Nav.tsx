@@ -33,7 +33,6 @@ export default function NavBar() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-            {/* ── Desktop ── */}
             <div className="hidden md:grid grid-cols-3 items-center py-2 px-5">
                 <motion.span
                     className={`font-Krona uppercase text-[17px] tracking-[-0.03em] leading-[1.4em] transition duration-300 justify-self-start hover:scale-105 ${

@@ -1,30 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
 @import "tailwindcss";
 
 @font-face {
-    font-family: Inter;
-    src: url(/assets/fonts/Inter_24pt-BoldItalic.ttf) format("truetype");
-}
-
-@font-face {
     font-family: Ronzino-Medium;
-    src: url(/assets/fonts/Ronzino-Bold.woff2) format("woff2");
+    src: url(/fonts/Ronzino-Medium.woff2) format("woff2");
 }
 
 @font-face {
     font-family: Ronzino-Oblique;
-    src: url(/assets/fonts/Ronzino-Oblique.otf) format("opentype");
+    src: url(/fonts/Ronzino-Oblique.otf) format("opentype");
 }
 
 @font-face {
     font-family: Fino-Sans;
-    src: url(/assets/fonts/Fino-Sans-Title-Regular.ttf) format("truetype");
+    src: url(/fonts/Fino-Sans-Title-Regular.ttf) format("truetype");
 }
 
-/* #font-face {
-    font-family: Krona-One;
-    src: url(/assets/fonts/KronaOne-Regular.ttf) format("truetype");
-} */
+@font-face {
+    font-family: KronaOne;
+    src: url(/fonts/KronaOne-Regular.ttf) format("truetype");
+}
 
 @theme{
     --font-Inter: Inter, sans-serif;
