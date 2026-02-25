@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Button from "../Buttons_And_Links/Button";
 
 const thumbnails = [
-  { src: "/1.avif",       label: "Classic" },
+  { src: "/1.avif",       label: "classNameic" },
   { src: "/2.avif", label: "Shadow" },
   { src: "/3.avif",          label: "Dusk" },
   { src: "/HeroImg.avif",        label: "Arctic" },

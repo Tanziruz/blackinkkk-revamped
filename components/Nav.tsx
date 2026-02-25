@@ -35,7 +35,7 @@ export default function NavBar() {
         >
             <div className="hidden md:grid grid-cols-3 items-center py-2 px-5">
                 <motion.span
-                    className={`font-Krona uppercase text-[17px] tracking-[-0.03em] leading-[1.4em] transition duration-300 justify-self-start hover:scale-105 ${
+                    className={`font-Fino uppercase text-[25px] tracking-wider leading-[1.4em] transition duration-300 justify-self-start hover:scale-105 ${
                         scrolled ? "text-black" : "text-white"
                     }`}
                     initial={{ opacity: 0, x: 0 }}
@@ -53,7 +53,7 @@ export default function NavBar() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 + i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <Nav_Link variant={scrolled ? "dark" : "light"} title={title} href={`#${title.toLowerCase()}`} />
+                            <Nav_Link variant={scrolled ? "dark" : "light"} title={title} href={`${title.toLowerCase()}`} />
                         </motion.div>
                     ))}
                 </div>
