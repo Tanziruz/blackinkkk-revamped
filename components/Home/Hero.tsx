@@ -49,10 +49,15 @@ export default function Hero() {
           </p>
         </div>
 
-        <h1 className="text-center text-6xl">Premium wear<br />for modern living</h1>
+        <h1 className="text-center text-5xl lg:text-6xl">Premium wear<br />for modern living</h1>
 
-        <p className="t18 text-white-80! text-center mb-3">
+        <p className="t18 text-white-80! text-center mb-3 hidden lg:block">
           Discover our new range of soft clothes made for your daily <br /> look and
+          your best days with the finest fabrics.
+        </p>
+
+        <p className="t18 text-white-80! text-center leading-[1.5em] mb-3 hidden max-lg:block">
+          Discover our new range of soft clothes made for your daily look and
           your best days with the finest fabrics.
         </p>
 
