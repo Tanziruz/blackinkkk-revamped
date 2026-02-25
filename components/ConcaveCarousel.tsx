@@ -49,7 +49,7 @@ function Card({ src, label }: { src: string; label: string }) {
 /* ── Main carousel ── */
 export default function ConcaveCarousel() {
   const count = slides.length;
-  const radius = 480;
+  const radius = 340;
 
   /* framer-motion values */
   const rawAngle = useMotionValue(0);
