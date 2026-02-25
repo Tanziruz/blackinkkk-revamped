@@ -59,7 +59,7 @@
     }
 
     h1,h2,h3,h4,h5,p.t12,p.t13,p.t14,p.t15,p.t16,p.t18,p.t20,p.t22,p.t24{
-        @apply min-w-0 md:min-w-[202.5px] lg:min-w-300;
+        @apply min-w-0;
     }
 
     h1{
@@ -136,7 +136,7 @@
 
     /* Skew-slide text animation — requires two duplicate text divs inside a span.btn-label */
     .btn-anim {
-        @apply relative z-10 w-fit cursor-pointer overflow-hidden;
+        @apply relative z-10 w-fit cursor-pointer overflow-hidden flex items-center gap-1.5 whitespace-nowrap;
     }
 
     .btn-label {
