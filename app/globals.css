@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -20,11 +21,17 @@
     src: url(/assets/fonts/Fino-Sans-Title-Regular.ttf) format("truetype");
 }
 
+/* #font-face {
+    font-family: Krona-One;
+    src: url(/assets/fonts/KronaOne-Regular.ttf) format("truetype");
+} */
+
 @theme{
     --font-Inter: Inter, sans-serif;
     --font-Ronzino-Medium: Ronzino-Medium, sans-serif;
     --font-Ronzino-Oblique: Ronzino-Oblique, sans-serif;
     --font-Fino: Fino-Sans, sans-serif;
+    --font-Krona: KronaOne, sans-serif;
     --color-gray: #787878;
     --color-white-15: rgba(255, 255, 255, 0.15);
     --color-white-20: rgba(255, 255, 255, 0.20);
@@ -116,19 +123,19 @@
     }
 
     button.btn1 {
-        @apply bg-white font-Inter text-black text-[15px] tracking-[0.03em] leading-[1.55em] rounded-3xl transition duration-300 ease-in-out hover:bg-gray-200 py-2 px-3.75;
+        @apply bg-white font-Inter text-black text-[15px] tracking-[-0.03em] leading-[1.55em] rounded-3xl transition duration-300 ease-in-out hover:bg-gray-200 py-2 px-3.75;
     }
 
     button.btn2{
-        @apply bg-black rounded-3xl hover:cursor-pointer text-white py-2 px-3.75 font-Inter text-[15px] tracking-[-0.0035em] leading-[1.55em] transition duration-300 ease-in-out hover:bg-gray-800;
+        @apply bg-black rounded-3xl hover:cursor-pointer text-white py-2 px-3.75 font-Inter text-[15px] tracking-[-0.03em] leading-[1.55em] transition duration-300 ease-in-out hover:bg-gray-800;
     }
 
     button.btn3{
-        @apply font-Inter text-white text-[15px] tracking-[-0.035em] leading-[1.55em] rounded-3xl bg-white-15 hover:cursor-pointer hover:bg-white-20 transition duration-300 py-2 px-3.75 ;
+        @apply font-Inter text-white text-[15px] tracking-[-0.03em] leading-[1.55em] rounded-3xl bg-white-15 hover:cursor-pointer hover:bg-white-20 transition duration-300 py-2 px-3.75 ;
     }
     
     button.btn4{
-        @apply font-Inter text-white text-[18px] tracking-[-0.035em] leading-[1.55em] rounded-3xl bg-black hover:cursor-pointer hover:bg-black/90 transition duration-300 py-2 px-3.75 ;
+        @apply font-Inter text-white text-[18px] tracking-[-0.03em] leading-[1.55em] rounded-3xl bg-black hover:cursor-pointer hover:bg-black/90 transition duration-300 py-2 px-3.75 ;
     }
 
     /* Skew-slide text animation — requires two duplicate text divs inside a span.btn-label */
