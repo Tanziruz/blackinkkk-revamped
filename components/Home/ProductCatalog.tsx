@@ -1,16 +1,11 @@
-import Tag_Link from "../Buttons_And_Links/TagLink";
-import Button from "../Buttons_And_Links/Button";
-import ProductGrid from "./ProductGrid";
+import ProductGrid from "../ProductGrid";
 import { Sparkle } from "lucide-react";
+import CatalogHeading from "../CatalogHeading";
 
 export default function ProductCatalog() {
     return (
-        <section className="px-5 md:px-10 py-10 flex flex-col gap-4 w-full overflow-hidden">
-            <Tag_Link title="New Arrivals" leftIcon={Sparkle} />
-            <div className="flex items-end justify-between gap-4">
-                <h2 className="mb-20 !min-w-0 ">Fresh fits in<br />our latest drop</h2>
-                <Button variant="btn2" title="See all collections" />
-            </div>
+        <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10 md:py-12 lg:py-16 flex flex-col gap-3 md:gap-4 lg:gap-5 w-full overflow-hidden">
+            <CatalogHeading Tagtitle="New Arrivals" TagIcon={Sparkle} buttonTitle="See all collections" HeadingTitle1="Fresh fits in" HeadingTitle2="our latest drop"/>
             <ProductGrid />
         </section>
     );

@@ -18,7 +18,7 @@ export default function ProductCard({ image_main, image_hover, tag, title, price
     const [hovered, setHovered] = useState(false);
     return (
         <div
-            className="group w-full max-w-[373px] h-fit hover:cursor-pointer"
+            className="group w-full h-fit hover:cursor-pointer"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
