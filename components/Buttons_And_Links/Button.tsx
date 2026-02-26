@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type ButtonVariant = "btn1" | "btn2" | "btn3" | "btn4" | "tag-link";
+type ButtonVariant = "btn1" | "btn2" | "btn3" | "btn4" | "tag-link" | "btn5";
 
 interface ButtonProps {
   title: string;

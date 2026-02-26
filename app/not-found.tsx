@@ -42,7 +42,7 @@ export default function NotFound() {
                 <div className="flex items-center gap-3 mt-2 flex-wrap justify-center">
                     <Button title={"Back to Home"} variant={"btn1"} href={"/"}>
                     </Button>
-                    <Button title={"Browse Products"} variant={"btn3"} href={"/products"}>
+                    <Button title={"Browse Products"} variant={"btn5"} href={"/products"}>
                     </Button>
                 </div>
             </div>

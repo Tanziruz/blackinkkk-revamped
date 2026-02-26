@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Plus, Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,6 +25,17 @@ export default function NavBar({ products = [] }: { products?: Product[] }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const pathname = usePathname();
+    const router = useRouter();
+
+    function handleNavClick(href: string) {
+        setMenuOpen(false);
+        if (window.scrollY === 0) {
+            router.push(href);
+            return;
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(() => router.push(href), 420);
+    }
 
     const isProductDetail = /^\/products\/.+/.test(pathname);
 
@@ -57,7 +68,7 @@ export default function NavBar({ products = [] }: { products?: Product[] }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <Link href="/">BlackInkkk</Link>
+                    <Link href="/" onClick={() => handleNavClick("/")}>BlackInkkk</Link>
                 </motion.span>
 
                 <div className="flex justify-center items-center gap-6 backdrop-blur-xs rounded-full px-4 py-2">
@@ -68,7 +79,7 @@ export default function NavBar({ products = [] }: { products?: Product[] }) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 + i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <Nav_Link variant={scrolled || isProductDetail ? "dark" : "light"} title={title} href={navHrefs[title]} />
+                            <Nav_Link variant={scrolled || isProductDetail ? "dark" : "light"} title={title} href={navHrefs[title]} onClick={() => handleNavClick(navHrefs[title])} />
                         </motion.div>
                     ))}
                 </div>
@@ -93,7 +104,7 @@ export default function NavBar({ products = [] }: { products?: Product[] }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <Link href="/">BlackInkkk</Link>
+                    <Link href="/" onClick={() => handleNavClick("/")}>BlackInkkk</Link>
                 </motion.span>
 
                 <motion.div
@@ -125,19 +136,24 @@ export default function NavBar({ products = [] }: { products?: Product[] }) {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        <div className="flex flex-col items-center gap-8 pb-10 pt-6">
+                        <div className="flex flex-col items-center pb-8 pt-4">
                             {mobileLinks.map((title, i) => (
                                 <motion.div
                                     key={title}
+                                    className="w-full flex flex-col items-center"
                                     initial={{ opacity: 0, y: 16 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 8 }}
                                     transition={{ delay: 0.05 + i * 0.07, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                                 >
-                                    <Nav_Link variant={linkVariant} title={title} href={navHrefs[title]} />
+                                    <div className="py-5 w-full flex justify-center">
+                                        <Nav_Link variant={linkVariant} title={title} href={navHrefs[title]} onClick={() => handleNavClick(navHrefs[title])} />
+                                    </div>
+                                    <div className="w-full h-px bg-black/8" />
                                 </motion.div>
                             ))}
                             <motion.div
+                                className="pt-6"
                                 initial={{ opacity: 0, y: 16 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 8 }}

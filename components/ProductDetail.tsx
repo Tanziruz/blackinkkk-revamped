@@ -199,10 +199,19 @@ export default function ProductDetail({ product }: Props) {
 
                         <motion.button
                             {...entry(0.54)}
-                            className="w-full bg-black text-white font-Inter text-[15px] md:text-[16px] tracking-[-0.02em] leading-[1.5em] py-4 rounded-full hover:bg-black/85 active:scale-[0.99] transition-all duration-200 mb-7 cursor-pointer"
+                            className={`btn-anim w-full bg-black text-white font-Inter text-[15px] md:text-[16px] tracking-[-0.02em] leading-[1.5em] py-4 rounded-full hover:bg-black/85 active:scale-[0.99] transition-all duration-200 mb-7 cursor-pointer ${
+                                product.stock === 0 ? "opacity-50 pointer-events-none" : ""
+                            }`}
                             disabled={product.stock === 0}
                         >
-                            {product.stock === 0 ? "Sold Out" : "Order Now"}
+                            <span className="btn-label">
+                                <span className="btn-label-primary">
+                                    {product.stock === 0 ? "Sold Out" : "Order Now"}
+                                </span>
+                                <span className="btn-label-secondary">
+                                    {product.stock === 0 ? "Sold Out" : "Order Now"}
+                                </span>
+                            </span>
                         </motion.button>
 
                         {product.details && (

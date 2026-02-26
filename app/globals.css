@@ -152,6 +152,10 @@
         @apply font-Inter text-white text-[18px] tracking-[-0.03em] leading-[1.55em] rounded-3xl bg-black hover:cursor-pointer hover:bg-black/90 transition duration-300 py-2 px-3.75 ;
     }
 
+button.btn5 {
+             @apply font-Inter text-white text-[15px] tracking-[-0.03em] leading-[1.55em] rounded-3xl bg-transparent border border-white/10 hover:cursor-pointer hover:bg-white-20 transition duration-300 py-2 px-3.75;
+         }
+
     /* Skew-slide text animation — requires two duplicate text divs inside a span.btn-label */
     .btn-anim {
         @apply relative z-10 w-fit cursor-pointer overflow-hidden flex items-center gap-1.5 whitespace-nowrap;
