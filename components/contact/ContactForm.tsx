@@ -1,8 +1,14 @@
 "use client";
 
 import { allCountries } from "country-telephone-data";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronDown, Search } from "lucide-react";
 import Image from "next/image";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 import { z } from "zod";
 
@@ -102,6 +108,7 @@ export default function ContactForm() {
 
     const [dialCode, setDialCode] = useState("+91");
     const [phoneNum, setPhoneNum] = useState("");
+    const [countrySearch, setCountrySearch] = useState("");
 
     function set(field: keyof ContactFields) {
         return (v: string) => {
@@ -191,17 +198,50 @@ export default function ContactForm() {
                             <div className={`flex rounded-xl overflow-hidden bg-white transition ${
                                 errors.phone ? "ring-2 ring-red-400" : "focus-within:ring-2 focus-within:ring-black/10"
                             }`}>
-                                <select
-                                    value={dialCode}
-                                    onChange={(e) => handleDialChange(e.target.value)}
-                                    className="bg-transparent border-r border-black/10 px-3 py-3 font-Inter text-[14px] text-black tracking-[-0.02em] outline-none cursor-pointer shrink-0 max-w-35"
-                                >
-                                    {countryList.map((c) => (
-                                        <option key={c.iso2} value={c.dial}>
-                                            {c.dial}  {c.name}
-                                        </option>
-                                    ))}
-                                </select>
+                                <DropdownMenu onOpenChange={() => setCountrySearch("")}>
+                                    <DropdownMenuTrigger asChild>
+                                        <button
+                                            type="button"
+                                            className="flex items-center gap-1.5 shrink-0 border-r border-black/10 px-3 py-3 font-Inter text-[14px] text-black tracking-[-0.02em] outline-none cursor-pointer hover:bg-black/3 transition"
+                                        >
+                                            {dialCode}
+                                            <ChevronDown size={13} className="text-black/50" />
+                                        </button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="w-72 overflow-hidden p-0" align="start">
+                                        <div className="px-2 pt-2 pb-1.5 border-b border-black/10 bg-popover">
+                                            <div className="flex items-center gap-2 rounded-lg bg-black/5 px-2.5 py-1.5">
+                                                <Search size={13} className="text-black/40 shrink-0" />
+                                                <input
+                                                    autoFocus
+                                                    type="text"
+                                                    placeholder="Search country or code..."
+                                                    value={countrySearch}
+                                                    onChange={(e) => setCountrySearch(e.target.value)}
+                                                    className="flex-1 bg-transparent font-Inter text-[13px] text-black placeholder:text-black/40 tracking-[-0.01em] outline-none"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="max-h-56 overflow-y-auto">
+                                            {countryList
+                                                .filter(
+                                                    (c) =>
+                                                        c.name.toLowerCase().includes(countrySearch.toLowerCase()) ||
+                                                        c.dial.includes(countrySearch)
+                                                )
+                                                .map((c) => (
+                                                    <DropdownMenuItem
+                                                        key={c.iso2}
+                                                        onSelect={() => handleDialChange(c.dial)}
+                                                        className="flex gap-2 items-center px-3 py-2 font-Inter text-[13px] tracking-[-0.01em] cursor-pointer rounded-none"
+                                                    >
+                                                        <span className="w-10 shrink-0 text-black/55">{c.dial}</span>
+                                                        <span className="text-black">{c.name}</span>
+                                                    </DropdownMenuItem>
+                                                ))}
+                                        </div>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
                                 <input
                                     type="tel"
                                     placeholder="98103 67883"
