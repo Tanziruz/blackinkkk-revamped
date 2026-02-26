@@ -27,7 +27,7 @@ export default function Footer() {
                             Redefining streetwear with premium oversized t-shirts. Comfort meets style in every piece.
                         </p>
                         <div className="mt-2">
-                            <Button variant="btn1" title="Contact Us" />
+                            <Button variant="btn1" title="Contact Us" href="/contact" />
                         </div>
                     </div>
 

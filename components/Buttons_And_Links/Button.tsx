@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type ButtonVariant = "btn1" | "btn2" | "btn3" | "btn4" | "tag-link";
 
 interface ButtonProps {
@@ -7,18 +9,21 @@ interface ButtonProps {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   className?: string;
+  href: string;
 }
 
-const Button = ({ title, variant, id, leftIcon, rightIcon, className }: ButtonProps) => {
+const Button = ({ title, variant, id, leftIcon, rightIcon, className, href }: ButtonProps) => {
   return (
-    <button id={id} className={`${variant} btn-anim ${className ?? ""}`.trim()}>
-      {leftIcon}
-      <span className="btn-label">
-        <div className="btn-label-primary">{title}</div>
-        <div className="btn-label-secondary">{title}</div>
-      </span>
-      {rightIcon}
-    </button>
+    <Link href={href}>
+      <button id={id} className={`${variant} btn-anim ${className ?? ""}`.trim()}>
+        {leftIcon}
+        <span className="btn-label">
+          <div className="btn-label-primary">{title}</div>
+          <div className="btn-label-secondary">{title}</div>
+        </span>
+        {rightIcon}
+      </button>
+    </Link>
   );
 };
 

@@ -6,13 +6,14 @@ import type { LucideIcon } from "lucide-react"
 interface TagLinkProps {
     title: string;
     leftIcon?: LucideIcon;
+    href: string;
 }
 
 
-export default function Tag_Link({ title, leftIcon: LeftIcon }: TagLinkProps) {
+export default function Tag_Link({ title, leftIcon: LeftIcon, href }: TagLinkProps) {
   return (
     <div>
-        <Button title={title} variant="tag-link" leftIcon={LeftIcon ? <LeftIcon size={14} /> : undefined} />
+        <Button title={title} variant="tag-link" leftIcon={LeftIcon ? <LeftIcon size={14}  /> : undefined} href={href} />
     </div>
   )
 }

@@ -12,6 +12,8 @@ export default function OurCollection() {
                 buttonTitle="Shop All Items"
                 HeadingTitle1="Modern Collections"
                 HeadingTitle2="Defined by Simplicity"
+                hrefButton="/products"
+                hrefTag="/products"
             />
             <div className="flex flex-col min-[950px]:flex-row gap-4 mt-2">
                 <div className="relative w-full min-[950px]:w-1/2 aspect-480/460 rounded-3xl overflow-hidden">
@@ -49,7 +51,7 @@ export default function OurCollection() {
                                 </div>
                             </div>
                         </div>
-                        <Button variant="btn2" title="All collections" className="w-full sm:w-auto justify-center" />
+                        <Button variant="btn2" title="All collections" className="w-full sm:w-auto justify-center" href="/products" />
                     </div>
                 </div>
             </div>

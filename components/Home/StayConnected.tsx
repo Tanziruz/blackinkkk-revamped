@@ -19,8 +19,8 @@ export default function StayConnected() {
                 </p>
 
                 <div className="flex items-center gap-3 flex-wrap justify-center">
-                    <Button variant="btn2" title="See collections" />
-                    <Button variant="btn1" title="Contact us" />
+                    <Button variant="btn2" title="See collections" href="/products" />
+                    <Button variant="btn1" title="Contact us" href="/contact" />
                 </div>
             </div>
 

@@ -62,8 +62,8 @@ export default function Hero() {
         </p>
 
         <div className="flex items-center justify-center gap-2.5 pt-1">
-          <Button variant="btn1" title="See all collections" />
-          <Button variant="btn3" title="Contact us" />
+          <Button variant="btn1" title="See all collections" href="/products" />
+          <Button variant="btn3" title="Contact us" href="/contact" />
         </div>
       </div>
 

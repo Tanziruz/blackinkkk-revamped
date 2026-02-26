@@ -8,17 +8,19 @@ interface CatalogHeadingProps {
     buttonTitle: string;
     HeadingTitle1: string;
     HeadingTitle2: string;
+    hrefButton : string;
+    hrefTag: string;
 }
 
 
 
-export default function CatalogHeading({ Tagtitle, buttonTitle, TagIcon , HeadingTitle1, HeadingTitle2}: CatalogHeadingProps) {
+export default function CatalogHeading({ Tagtitle, buttonTitle, TagIcon , HeadingTitle1, HeadingTitle2, hrefButton, hrefTag}: CatalogHeadingProps) {
     return(
         <>
-            <Tag_Link title={Tagtitle} leftIcon={TagIcon} />
+            <Tag_Link title={Tagtitle} leftIcon={TagIcon} href={hrefTag} />
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-6">
                 <h2 className="!mb-0 !min-w-0">{HeadingTitle1}<br />{HeadingTitle2}</h2>
-                <Button variant="btn2" title={buttonTitle} />
+                <Button variant="btn2" title={buttonTitle} href={hrefButton}/>
             </div>
         </>
     );

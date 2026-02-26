@@ -10,6 +10,13 @@ import Nav_Link from "./Buttons_And_Links/NavLink";
 
 const mobileLinks = ["Home", "About", "Shop", "Contact"] as const;
 
+const navHrefs: Record<string, string> = {
+    Home: "/",
+    About: "/about",
+    Shop: "/products",
+    Contact: "/contact",
+};
+
 export default function NavBar() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -53,7 +60,7 @@ export default function NavBar() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 + i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <Nav_Link variant={scrolled ? "dark" : "light"} title={title} href={`${title.toLowerCase()}`} />
+                            <Nav_Link variant={scrolled ? "dark" : "light"} title={title} href={navHrefs[title]} />
                         </motion.div>
                     ))}
                 </div>
@@ -65,7 +72,7 @@ export default function NavBar() {
                     transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
                     <Icon icon={Search} variant={scrolled ? "variant2" : "variant1"} />
-                    <Button variant={scrolled ? "btn2" : "btn1"} title="Shop All Items" />
+                    <Button variant={scrolled ? "btn2" : "btn1"} title="Shop All Items" href="/products" />
                 </motion.div>
             </div>
 
@@ -119,7 +126,7 @@ export default function NavBar() {
                                     exit={{ opacity: 0, y: 8 }}
                                     transition={{ delay: 0.05 + i * 0.07, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                                 >
-                                    <Nav_Link variant={linkVariant} title={title} href={`#${title.toLowerCase()}`} />
+                                    <Nav_Link variant={linkVariant} title={title} href={navHrefs[title]} />
                                 </motion.div>
                             ))}
                             <motion.div
@@ -128,7 +135,7 @@ export default function NavBar() {
                                 exit={{ opacity: 0, y: 8 }}
                                 transition={{ delay: 0.05 + mobileLinks.length * 0.07, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <Button variant="btn2" title="Shop all items" />
+                                <Button variant="btn2" title="Shop all items" href="/products" />
                             </motion.div>
                         </div>
                     </motion.div>
