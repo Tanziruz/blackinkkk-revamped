@@ -3,9 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/types/product";
-import ProductCardTag from "./Buttons_And_Links/ProductCardTag";
-import BestSellerTag from "./Buttons_And_Links/BestSellerTag";
+import { motion } from "framer-motion";
 import {
     Globe2,
     Scissors,
@@ -15,6 +13,19 @@ import {
     CreditCard,
     RotateCcw,
 } from "lucide-react";
+import type { Product } from "@/types/product";
+import ProductCardTag from "./Buttons_And_Links/ProductCardTag";
+import BestSellerTag from "./Buttons_And_Links/BestSellerTag";
+import { Stagger, StaggerItem } from "./Animate";
+
+const E = [0.22, 1, 0.36, 1] as const;
+function entry(delay = 0) {
+    return {
+        initial: { opacity: 0, y: 18 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.55, delay, ease: E },
+    };
+}
 
 interface Props {
     product: Product;
@@ -61,7 +72,12 @@ export default function ProductDetail({ product }: Props) {
             <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-8 md:py-12 lg:py-16">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16">
 
-                    <div className="w-full lg:w-1/2">
+                    <motion.div
+                        className="w-full lg:w-1/2"
+                        initial={{ opacity: 0, x: -36 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, ease: E }}
+                    >
                         <div className="relative w-full aspect-4/5 rounded-2xl overflow-hidden bg-beige">
                             <div className="absolute top-4 left-4 z-10">
                                 {product.tag === "new" && <ProductCardTag />}
@@ -100,11 +116,11 @@ export default function ProductDetail({ product }: Props) {
                                 </div>
                             )}
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="w-full lg:w-1/2 flex flex-col">
 
-                        <div className="flex items-center gap-2 mb-5">
+                        <motion.div {...entry(0.1)} className="flex items-center gap-2 mb-5">
                             <Link
                                 href="/products"
                                 className="font-Inter text-[13px] md:text-[14px] text-gray hover:text-black transition-colors duration-200"
@@ -115,13 +131,13 @@ export default function ProductDetail({ product }: Props) {
                             <span className="font-Inter text-[13px] md:text-[14px] text-black">
                                 {product.category ?? "Men's Wear"}
                             </span>
-                        </div>
+                        </motion.div>
 
-                        <h2 className="font-Ronzino-Medium text-black text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] tracking-[-0.03em] leading-[1.12em] mb-4">
+                        <motion.h2 {...entry(0.18)} className="font-Ronzino-Medium text-black text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] tracking-[-0.03em] leading-[1.12em] mb-4">
                             {product.title}
-                        </h2>
+                        </motion.h2>
 
-                        <div className="flex items-baseline gap-3 mb-5">
+                        <motion.div {...entry(0.26)} className="flex items-baseline gap-3 mb-5">
                             <span className="font-Ronzino-Medium text-black text-[22px] md:text-[26px] tracking-[-0.03em] leading-[1.4em]">
                                 USD ${product.price.toFixed(2)}
                             </span>
@@ -130,16 +146,16 @@ export default function ProductDetail({ product }: Props) {
                                     USD ${product.originalPrice.toFixed(2)}
                                 </span>
                             )}
-                        </div>
+                        </motion.div>
 
                         {product.description && (
-                            <p className="font-Inter text-[13px] md:text-[14px] text-[#6E6E6E] tracking-[-0.02em] leading-[1.65em] mb-6">
+                            <motion.p {...entry(0.32)} className="font-Inter text-[13px] md:text-[14px] text-[#6E6E6E] tracking-[-0.02em] leading-[1.65em] mb-6">
                                 {product.description}
-                            </p>
+                            </motion.p>
                         )}
 
                         {hasColors && (
-                            <div className="mb-5">
+                            <motion.div {...entry(0.38)} className="mb-5">
                                 <p className="font-Inter text-[13px] text-black mb-2.5">
                                     <span className="font-medium">Colour</span>
                                     <span className="text-gray ml-2">
@@ -162,10 +178,10 @@ export default function ProductDetail({ product }: Props) {
                                         />
                                     ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         )}
 
-                        <div className="mb-6">
+                        <motion.div {...entry(0.46)} className="mb-6">
                             {product.stock > 10 ? (
                                 <p className="font-Inter text-[13px] font-medium" style={{ color: "#2E7D32" }}>
                                     ✓ {product.stock} in stock
@@ -179,17 +195,18 @@ export default function ProductDetail({ product }: Props) {
                                     ✗ Out of stock
                                 </p>
                             )}
-                        </div>
+                        </motion.div>
 
-                        <button
+                        <motion.button
+                            {...entry(0.54)}
                             className="w-full bg-black text-white font-Inter text-[15px] md:text-[16px] tracking-[-0.02em] leading-[1.5em] py-4 rounded-full hover:bg-black/85 active:scale-[0.99] transition-all duration-200 mb-7 cursor-pointer"
                             disabled={product.stock === 0}
                         >
                             {product.stock === 0 ? "Sold Out" : "Order Now"}
-                        </button>
+                        </motion.button>
 
                         {product.details && (
-                            <div className="border-t border-black/10">
+                            <motion.div {...entry(0.62)} className="border-t border-black/10">
                                 {/* Material */}
                                 <div className="flex items-start gap-3.5 py-4 border-b border-black/10">
                                     <Globe2 className="w-4.5 h-4.5 text-black mt-0.5 shrink-0" strokeWidth={1.5} />
@@ -226,16 +243,16 @@ export default function ProductDetail({ product }: Props) {
                                         </span>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         )}
                     </div>
                 </div>
             </section>
 
             <section className="px-4 sm:px-6 md:px-10 lg:px-16 pb-12 md:pb-16 lg:pb-20">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                <Stagger className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4" stagger={0.1}>
                     {FEATURES.map((feature) => (
-                        <div key={feature.title} className="bg-white rounded-2xl p-5 md:p-6">
+                        <StaggerItem key={feature.title} className="bg-white rounded-2xl p-5 md:p-6">
                             <feature.icon
                                 className="w-6 h-6 text-black mb-4"
                                 strokeWidth={1.5}
@@ -246,9 +263,9 @@ export default function ProductDetail({ product }: Props) {
                             <p className="font-Inter text-[12px] md:text-[13px] text-gray tracking-[-0.01em] leading-[1.55em]">
                                 {feature.desc}
                             </p>
-                        </div>
+                        </StaggerItem>
                     ))}
-                </div>
+                </Stagger>
             </section>
         </div>
     );

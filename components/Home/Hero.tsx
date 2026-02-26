@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Button from "../Buttons_And_Links/Button";
+import { EntryStagger, EntryItem } from "../Animate";
 
 const thumbnails = [
   { src: "/1.avif",       label: "classNameic" },
@@ -42,30 +43,37 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-2/5 backdrop-blur-3xl mask-[linear-gradient(to_bottom,transparent,black)]" />
       </div>
 
-      <div className="flex flex-col items-center gap-3 w-full max-w-155 px-5 text-center">
-        <div className="w-fit bg-white-15 backdrop-blur-sm rounded-full px-3.5 py-1.5">
-          <p className="font-Ronzino-Medium text-white text-[12px] lg:text-[13px] tracking-[-0.025em] leading-[1.4em] mb-0!">
-            Unisex Oversized
+      <EntryStagger className="flex flex-col items-center gap-3 w-full max-w-155 px-5 text-center" delayChildren={0.2} stagger={0.11}>
+        <EntryItem>
+          <div className="w-fit bg-white-15 backdrop-blur-sm rounded-full px-3.5 py-1.5">
+            <p className="font-Ronzino-Medium text-white text-[12px] lg:text-[13px] tracking-[-0.025em] leading-[1.4em] mb-0!">
+              Unisex Oversized
+            </p>
+          </div>
+        </EntryItem>
+
+        <EntryItem distance={30}>
+          <h1 className="text-center text-5xl lg:text-6xl">Premium wear<br />for modern living</h1>
+        </EntryItem>
+
+        <EntryItem>
+          <p className="t18 text-white-80! text-center mb-3 hidden lg:block">
+            Discover our new range of soft clothes made for your daily <br /> look and
+            your best days with the finest fabrics.
           </p>
-        </div>
+          <p className="t18 text-white-80! text-center leading-[1.5em] mb-3 hidden max-lg:block">
+            Discover our new range of soft clothes made for your daily look and
+            your best days with the finest fabrics.
+          </p>
+        </EntryItem>
 
-        <h1 className="text-center text-5xl lg:text-6xl">Premium wear<br />for modern living</h1>
-
-        <p className="t18 text-white-80! text-center mb-3 hidden lg:block">
-          Discover our new range of soft clothes made for your daily <br /> look and
-          your best days with the finest fabrics.
-        </p>
-
-        <p className="t18 text-white-80! text-center leading-[1.5em] mb-3 hidden max-lg:block">
-          Discover our new range of soft clothes made for your daily look and
-          your best days with the finest fabrics.
-        </p>
-
-        <div className="flex items-center justify-center gap-2.5 pt-1">
-          <Button variant="btn1" title="See all collections" href="/products" />
-          <Button variant="btn3" title="Contact us" href="/contact" />
-        </div>
-      </div>
+        <EntryItem>
+          <div className="flex items-center justify-center gap-2.5 pt-1">
+            <Button variant="btn1" title="See all collections" href="/products" />
+            <Button variant="btn3" title="Contact us" href="/contact" />
+          </div>
+        </EntryItem>
+      </EntryStagger>
 
       {/* Thumbnail strip */}
       <div className="absolute bottom-4 left-0 right-0 flex items-end justify-center gap-0.5 px-4 overflow-x-auto">

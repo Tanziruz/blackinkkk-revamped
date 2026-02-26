@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import Button from "../Buttons_And_Links/Button";
 import FooterLink from "../Buttons_And_Links/FooterLink";
+import { FadeUp, Stagger, StaggerItem } from "../Animate";
 
 function ColHeading({ children }: { children: React.ReactNode }) {
     return (
@@ -17,9 +18,9 @@ export default function Footer() {
             <div className="border-t border-white-15 mx-6 sm:mx-10 lg:mx-16" />
 
             <div className="px-6 sm:px-10 lg:px-16 pt-10 lg:pt-14 pb-6">
-                <div className="flex flex-col sm:flex-row gap-10 lg:gap-6">
+                <Stagger className="flex flex-col sm:flex-row gap-10 lg:gap-6" stagger={0.1}>
 
-                    <div className="flex flex-col gap-2 sm:w-[42%] lg:w-auto lg:flex-[1.6]">
+                    <StaggerItem className="flex flex-col gap-2 sm:w-[42%] lg:w-auto lg:flex-[1.6]">
                         <span className="font-Fino  text-white text-xl tracking-[0.12em] uppercase">
                             BLACKINKKK
                         </span>
@@ -29,9 +30,9 @@ export default function Footer() {
                         <div className="mt-2">
                             <Button variant="btn1" title="Contact Us" href="/contact" />
                         </div>
-                    </div>
+                    </StaggerItem>
 
-                    <div className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-4">
+                    <StaggerItem className="flex-1 grid grid-cols-2 lg:grid-cols-3 gap-y-8 gap-x-4">
 
                         <div className="flex flex-col items-start">
                             <ColHeading>Quick Links</ColHeading>
@@ -73,15 +74,15 @@ export default function Footer() {
                             </div>
                         </div>
 
-                    </div>
-                </div>
+                    </StaggerItem>
+                </Stagger>
             </div>
 
-            <div className="mt-4">
+            <FadeUp distance={16} className="mt-4">
                 <p className="font-Fino text-white uppercase select-none leading-[0.84em] tracking-[-0.02em] text-[18.5vw] px-5 mb-0!">
                     BLACKINKKK
                 </p>
-            </div>
+            </FadeUp>
 
         </footer>
     );

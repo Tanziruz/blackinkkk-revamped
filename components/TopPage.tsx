@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./Buttons_And_Links/Button";
+import { EntryStagger, EntryItem } from "./Animate";
 
 interface TopPageProps {
     imageSrc: string;
@@ -29,28 +30,35 @@ export default function TopPage({ imageSrc, imageAlt, tagTitle, title, descripti
         <div className="absolute inset-x-0 bottom-0 h-2/5 backdrop-blur-3xl mask-[linear-gradient(to_bottom,transparent,black)]" />
       </div>
 
-      <div className="flex flex-col items-center gap-3 w-full max-w-155 px-5 text-center">
-        <div className="w-fit bg-white-15 backdrop-blur-sm rounded-full px-3.5 py-1.5">
-          <p className="font-Ronzino-Medium text-white text-[12px] lg:text-[13px] tracking-[-0.025em] leading-[1.4em] mb-0!">
-            {tagTitle}
+      <EntryStagger className="flex flex-col items-center gap-3 w-full max-w-155 px-5 text-center" delayChildren={0.25} stagger={0.12}>
+        <EntryItem>
+          <div className="w-fit bg-white-15 backdrop-blur-sm rounded-full px-3.5 py-1.5">
+            <p className="font-Ronzino-Medium text-white text-[12px] lg:text-[13px] tracking-[-0.025em] leading-[1.4em] mb-0!">
+              {tagTitle}
+            </p>
+          </div>
+        </EntryItem>
+
+        <EntryItem distance={30}>
+          <h1 className="text-center text-5xl lg:text-6xl">{title}</h1>
+        </EntryItem>
+
+        <EntryItem>
+          <p className="t18 text-white-80! text-center mb-3 hidden lg:block">
+            {description}
           </p>
-        </div>
+          <p className="t18 text-white-80! text-center leading-[1.5em] mb-3 hidden max-lg:block">
+            {description}
+          </p>
+        </EntryItem>
 
-        <h1 className="text-center text-5xl lg:text-6xl">{title}</h1>
-
-        <p className="t18 text-white-80! text-center mb-3 hidden lg:block">
-          {description}
-        </p>
-
-        <p className="t18 text-white-80! text-center leading-[1.5em] mb-3 hidden max-lg:block">
-          {description}
-        </p>
-
-        <div className="flex items-center justify-center gap-2.5 pt-1">
-          <Button variant="btn1" title={button1Text} href={button1Link} />
-           <Button variant="btn3" title={button2Text} href={button2Link} />
-        </div>
-      </div>
+        <EntryItem>
+          <div className="flex items-center justify-center gap-2.5 pt-1">
+            <Button variant="btn1" title={button1Text} href={button1Link} />
+             <Button variant="btn3" title={button2Text} href={button2Link} />
+          </div>
+        </EntryItem>
+      </EntryStagger>
     </section>
   );
 }

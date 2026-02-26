@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { z } from "zod";
+import { Stagger, StaggerItem, SlideInLeft, SlideInRight, FadeUp } from "../Animate";
 
 const contactSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
@@ -154,19 +155,20 @@ export default function ContactForm() {
     return (
         <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-10 sm:py-14 lg:py-18 flex flex-col gap-5">
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <InfoCard icon={Mail} value="Blackinkkk@aol.com" label="Email Address" />
-                <InfoCard icon={Phone} value="+91 98103 67883" label="Phone Number" />
-                <InfoCard icon={MapPin} value="Ghaziabad, Uttar Pradesh 201001" label="Location" />
-            </div>
+            <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" stagger={0.1}>
+                <StaggerItem><InfoCard icon={Mail} value="Blackinkkk@aol.com" label="Email Address" /></StaggerItem>
+                <StaggerItem><InfoCard icon={Phone} value="+91 98103 67883" label="Phone Number" /></StaggerItem>
+                <StaggerItem><InfoCard icon={MapPin} value="Ghaziabad, Uttar Pradesh 201001" label="Location" /></StaggerItem>
+            </Stagger>
 
             <div className="flex flex-col lg:flex-row gap-0 bg-beige rounded-2xl overflow-hidden">
 
-                <div className="relative w-full lg:w-[38%] aspect-4/3 lg:aspect-auto lg:min-h-135 shrink-0">
+                <SlideInLeft className="relative w-full lg:w-[38%] aspect-4/3 lg:aspect-auto lg:min-h-135 shrink-0">
                     <Image src="/Contact.avif" alt="Contact" fill className="object-cover object-center" />
-                </div>
+                </SlideInLeft>
 
-                <form className="flex-1 flex flex-col gap-4 px-6 sm:px-8 py-8" onSubmit={handleSubmit} noValidate>
+                <SlideInRight delay={0.08} className="flex-1">
+                <form className="flex flex-col gap-4 px-6 sm:px-8 py-8 h-full" onSubmit={handleSubmit} noValidate>
 
                     {submitted && (
                         <div className="bg-black text-white font-Inter text-[14px] tracking-[-0.02em] rounded-xl px-4 py-3">
@@ -243,6 +245,7 @@ export default function ContactForm() {
                         Send Message
                     </button>
                 </form>
+                </SlideInRight>
             </div>
 
         </section>

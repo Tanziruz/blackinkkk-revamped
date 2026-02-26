@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Prism from "./not-found-bg";
+import Button from "@/components/Buttons_And_Links/Button";
 
 export default function NotFound() {
     return (
@@ -15,7 +16,7 @@ export default function NotFound() {
                     noise={0.3}
                     bloom={0.8}
                     timeScale={0.3}
-                      
+
                     suspendWhenOffscreen
                 />
             </div>
@@ -39,18 +40,10 @@ export default function NotFound() {
                 </p>
 
                 <div className="flex items-center gap-3 mt-2 flex-wrap justify-center">
-                    <Link
-                        href="/"
-                        className="bg-white text-black font-Inter text-[15px] tracking-[-0.03em] leading-[1.55em] rounded-3xl py-2 px-5 transition duration-300 hover:bg-gray-200"
-                    >
-                        Back to Home
-                    </Link>
-                    <Link
-                        href="/products"
-                        className="font-Inter text-[15px] tracking-[-0.03em] leading-[1.55em] rounded-3xl py-2 px-5 border border-white/15 text-white transition duration-300 hover:bg-white/10"
-                    >
-                        Browse Products
-                    </Link>
+                    <Button title={"Back to Home"} variant={"btn1"} href={"/"}>
+                    </Button>
+                    <Button title={"Browse Products"} variant={"btn3"} href={"/products"}>
+                    </Button>
                 </div>
             </div>
 
