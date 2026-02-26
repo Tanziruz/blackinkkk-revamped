@@ -7,7 +7,6 @@ export default function NotFound() {
     return (
         <section className="relative flex flex-col items-center justify-center min-h-[calc(100dvh-80px)] px-6 py-20 text-center overflow-hidden bg-black">
 
-            {/* Prism background */}
             <div className="absolute inset-0 z-0 opacity-50 pointer-events-none">
                 <Prism
                     animationType="3drotate"
@@ -16,17 +15,15 @@ export default function NotFound() {
                     noise={0.3}
                     bloom={0.8}
                     timeScale={0.3}
-                    
+                      
                     suspendWhenOffscreen
                 />
             </div>
 
-            {/* Giant 404 */}
-            <h1 className="relative z-10 font-Fino text-[clamp(120px,28vw,320px)] leading-none tracking-tight text-white/10 select-none mb-0! -mt-5">
+            <h1 className="relative z-10 font-Fino text-[280px] sm:text-[300px] md:text-[320px] lg:text-[320px] leading-none tracking-tight text-white/10 select-none mb-0! -mt-5">
                 404
             </h1>
 
-            {/* Content overlay */}
             <div className="relative z-10 flex flex-col items-center gap-5 -mt-16 sm:-mt-24 lg:-mt-32">
                 <div className="flex items-center gap-2 bg-white text-black rounded-full px-4 py-1.5 text-[13px] font-Inter tracking-[-0.02em] select-none">
                     Page not found

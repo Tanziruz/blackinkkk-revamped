@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Plus, Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,6 +21,9 @@ const navHrefs: Record<string, string> = {
 export default function NavBar() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname();
+
+    const isProductDetail = /^\/products\/.+/.test(pathname);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.9);
@@ -27,14 +31,14 @@ export default function NavBar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    const isLight = !scrolled && !menuOpen;
+    const isLight = !isProductDetail && !scrolled && !menuOpen;
     const linkVariant = isLight ? "light" : "dark";
     const iconVariant = isLight ? "variant1" : "variant2";
 
     return (
         <motion.nav
             className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
-                scrolled || menuOpen ? "bg-white shadow-sm" : "bg-transparent"
+                scrolled || menuOpen || isProductDetail ? "bg-white shadow-sm" : "bg-transparent"
             }`}
             initial={{ y: -80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -43,7 +47,7 @@ export default function NavBar() {
             <div className="hidden md:grid grid-cols-3 items-center py-2 px-5">
                 <motion.span
                     className={`font-Fino uppercase text-[25px] tracking-wider leading-[1.4em] transition duration-300 justify-self-start hover:scale-105 ${
-                        scrolled ? "text-black" : "text-white"
+                        scrolled || isProductDetail ? "text-black" : "text-white"
                     }`}
                     initial={{ opacity: 0, x: 0 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -60,7 +64,7 @@ export default function NavBar() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 + i * 0.07, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <Nav_Link variant={scrolled ? "dark" : "light"} title={title} href={navHrefs[title]} />
+                            <Nav_Link variant={scrolled || isProductDetail ? "dark" : "light"} title={title} href={navHrefs[title]} />
                         </motion.div>
                     ))}
                 </div>
@@ -71,8 +75,8 @@ export default function NavBar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <Icon icon={Search} variant={scrolled ? "variant2" : "variant1"} />
-                    <Button variant={scrolled ? "btn2" : "btn1"} title="Shop All Items" href="/products" />
+                    <Icon icon={Search} variant={scrolled || isProductDetail ? "variant2" : "variant1"} />
+                    <Button variant={scrolled || isProductDetail ? "btn2" : "btn1"} title="Shop All Items" href="/products" />
                 </motion.div>
             </div>
 

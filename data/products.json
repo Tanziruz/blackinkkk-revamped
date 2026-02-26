@@ -7,7 +7,41 @@
         "image_main": "/productd.avif",
         "image_hover": "/productd_hover.avif",
         "tag": "best-seller",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 14,
+        "category": "Outerwear",
+        "description": "A heavyweight oversized jacket built for the coldest months. Structured silhouette, wide lapels, and a relaxed drop-shoulder fit make this a standout layering piece.",
+        "details": {
+            "material": "80% wool, 20% recycled polyester",
+            "care": "Dry clean only, store folded",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Obsidian",
+                "hex": "#1F1F1F",
+                "image_main": "/productd.avif",
+                "image_hover": "/productd_hover.avif"
+            },
+            {
+                "name": "Slate",
+                "hex": "#5C6370",
+                "image_main": "/2.avif",
+                "image_hover": "/1.avif"
+            },
+            {
+                "name": "Sage",
+                "hex": "#7C8C6A",
+                "image_main": "/3.avif",
+                "image_hover": "/4.avif"
+            },
+            {
+                "name": "Sand",
+                "hex": "#C4B49A",
+                "image_main": "/5.avif",
+                "image_hover": "/6.avif"
+            }
+        ]
     },
     {
         "id": "prod-002",
@@ -16,7 +50,35 @@
         "image_main": "/hover.avif",
         "image_hover": "/full.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 27,
+        "category": "Hoodies",
+        "description": "A premium heavyweight hoodie with a relaxed silhouette, kangaroo pocket, and an oversized hood. Crafted for effortless street styling year-round.",
+        "details": {
+            "material": "400 GSM heavyweight cotton fleece",
+            "care": "Machine wash cold, tumble dry low",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Charcoal",
+                "hex": "#3D3D3D",
+                "image_main": "/hover.avif",
+                "image_hover": "/full.avif"
+            },
+            {
+                "name": "Ivory",
+                "hex": "#EEEBE3",
+                "image_main": "/1.avif",
+                "image_hover": "/2.avif"
+            },
+            {
+                "name": "Forest",
+                "hex": "#3B5243",
+                "image_main": "/3.avif",
+                "image_hover": "/4.avif"
+            }
+        ]
     },
     {
         "id": "prod-003",
@@ -25,7 +87,15 @@
         "originalPrice": 65,
         "image_main": "/full.avif",
         "image_hover": "/hover.avif",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 42,
+        "category": "T-Shirts",
+        "description": "A minimal, relaxed-fit tee cut from a soft, breathable cotton jersey. The slightly elongated hem and dropped shoulders give it an effortlessly modern feel.",
+        "details": {
+            "material": "100% organic cotton jersey",
+            "care": "Machine wash cold, lay flat to dry",
+            "warranty": "One year full quality guarantee"
+        }
     },
     {
         "id": "prod-004",
@@ -34,97 +104,308 @@
         "image_main": "/productd_hover.avif",
         "image_hover": "/productd.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 8,
+        "category": "Trousers",
+        "description": "Tailored wide-leg trousers with a high-rise waist and fluid drape. Designed for clean, architectural styling that transitions effortlessly from day to evening.",
+        "details": {
+            "material": "Premium viscose twill blend",
+            "care": "Dry clean recommended, cool iron",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Noir",
+                "hex": "#1A1A1A",
+                "image_main": "/productd_hover.avif",
+                "image_hover": "/productd.avif"
+            },
+            {
+                "name": "Warm Stone",
+                "hex": "#B5A898",
+                "image_main": "/5.avif",
+                "image_hover": "/6.avif"
+            }
+        ]
     },
     {
         "id": "prod-005",
-        "title": "Noir Wide-Leg Trousers",
-        "price": 109,
-        "image_main": "/productd_hover.avif",
-        "image_hover": "/productd.avif",
+        "title": "Textured Knitted Shirt",
+        "price": 59,
+        "originalPrice": 79,
+        "image_main": "/1.avif",
+        "image_hover": "/2.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 19,
+        "category": "Men's Wear",
+        "description": "A premium knit construction offering a refined silhouette and breathable comfort for sophisticated everyday summer styling.",
+        "details": {
+            "material": "Premium organic cotton textured knit",
+            "care": "Machine wash cold, lay flat",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Black",
+                "hex": "#1F1F1F",
+                "image_main": "/1.avif",
+                "image_hover": "/2.avif"
+            },
+            {
+                "name": "Graphite",
+                "hex": "#4A4A4A",
+                "image_main": "/3.avif",
+                "image_hover": "/4.avif"
+            },
+            {
+                "name": "Olive",
+                "hex": "#6B7040",
+                "image_main": "/5.avif",
+                "image_hover": "/6.avif"
+            },
+            {
+                "name": "Khaki",
+                "hex": "#A08C6E",
+                "image_main": "/hover.avif",
+                "image_hover": "/full.avif"
+            }
+        ]
     },
     {
         "id": "prod-006",
-        "title": "Noir Wide-Leg Trousers",
-        "price": 109,
-        "image_main": "/productd_hover.avif",
-        "image_hover": "/productd.avif",
+        "title": "Phantom Cargo Pant",
+        "price": 119,
+        "image_main": "/6.avif",
+        "image_hover": "/5.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 11,
+        "category": "Trousers",
+        "description": "A utility-inspired cargo pant with articulated knees and a tapered leg. Multiple secure pockets and a robust canvas construction for lasting style.",
+        "details": {
+            "material": "Heavy-duty cotton canvas",
+            "care": "Machine wash cold, line dry",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Phantom",
+                "hex": "#2A2A2A",
+                "image_main": "/6.avif",
+                "image_hover": "/5.avif"
+            },
+            {
+                "name": "Earth",
+                "hex": "#7A6050",
+                "image_main": "/productd.avif",
+                "image_hover": "/productd_hover.avif"
+            }
+        ]
     },
     {
         "id": "prod-007",
-        "title": "Arctic Oversized Jacket",
-        "price": 129,
-        "originalPrice": 179,
-        "image_main": "/productd.avif",
-        "image_hover": "/productd_hover.avif",
+        "title": "Void Boxy Shirt",
+        "price": 74,
+        "originalPrice": 99,
+        "image_main": "/4.avif",
+        "image_hover": "/3.avif",
         "tag": "best-seller",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 33,
+        "category": "Shirts",
+        "description": "An oversized boxy shirt with a straight hem and subtle dropped shoulders. Long-sleeve design with a clean minimal collar—ready to wear open or buttoned.",
+        "details": {
+            "material": "Lightweight cotton poplin",
+            "care": "Machine wash warm, iron on low",
+            "warranty": "One year full quality guarantee"
+        }
     },
     {
         "id": "prod-008",
-        "title": "Shadow Drop Hoodie",
-        "price": 89,
-        "image_main": "/hover.avif",
-        "image_hover": "/full.avif",
+        "title": "Eclipse Bomber Jacket",
+        "price": 149,
+        "image_main": "/2.avif",
+        "image_hover": "/1.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 6,
+        "category": "Outerwear",
+        "description": "A streamlined bomber jacket with ribbed cuffs, collar, and hem. Satin-touch shell with a soft inner lining for comfortable transitional-season warmth.",
+        "details": {
+            "material": "Satin nylon shell, fleece lining",
+            "care": "Hand wash cold, do not tumble dry",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Midnight",
+                "hex": "#141420",
+                "image_main": "/2.avif",
+                "image_hover": "/1.avif"
+            },
+            {
+                "name": "Oxblood",
+                "hex": "#5C1A1A",
+                "image_main": "/full.avif",
+                "image_hover": "/hover.avif"
+            }
+        ]
     },
     {
         "id": "prod-009",
-        "title": "Dusk Relaxed Tee",
-        "price": 49,
-        "originalPrice": 65,
+        "title": "Washed Straight Denim",
+        "price": 99,
+        "originalPrice": 125,
         "image_main": "/full.avif",
         "image_hover": "/hover.avif",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 21,
+        "category": "Denim",
+        "description": "A straight-cut denim jean with a classic mid-rise waist and a subtle washed finish. Clean and versatile—the denim your wardrobe has been missing.",
+        "details": {
+            "material": "14 oz selvedge denim",
+            "care": "Machine wash cold inside out, line dry",
+            "warranty": "One year full quality guarantee"
+        }
     },
     {
         "id": "prod-010",
-        "title": "Noir Wide-Leg Trousers",
-        "price": 109,
-        "image_main": "/productd_hover.avif",
-        "image_hover": "/productd.avif",
+        "title": "Thermal Ribbed Crewneck",
+        "price": 79,
+        "image_main": "/3.avif",
+        "image_hover": "/4.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 0,
+        "category": "Knitwear",
+        "description": "A cozy ribbed crewneck in a thermal-weight knit. The close-fitting silhouette and fine-rib texture make it an ideal layering base or standalone statement.",
+        "details": {
+            "material": "Merino wool rib-knit",
+            "care": "Hand wash cold, reshape and lay flat",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Oat",
+                "hex": "#D6C9B2",
+                "image_main": "/3.avif",
+                "image_hover": "/4.avif"
+            },
+            {
+                "name": "Merlot",
+                "hex": "#7B2D3A",
+                "image_main": "/5.avif",
+                "image_hover": "/6.avif"
+            },
+            {
+                "name": "Ash",
+                "hex": "#9A9A9A",
+                "image_main": "/productd.avif",
+                "image_hover": "/productd_hover.avif"
+            }
+        ]
     },
     {
         "id": "prod-011",
-        "title": "Noir Wide-Leg Trousers",
-        "price": 109,
-        "image_main": "/productd_hover.avif",
-        "image_hover": "/productd.avif",
+        "title": "Minimal Satin Track Pant",
+        "price": 85,
+        "image_main": "/5.avif",
+        "image_hover": "/6.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 15,
+        "category": "Trousers",
+        "description": "A refined take on the classic track pant. Satin-finish fabric, side snap buttons along the leg, and an elasticated waistband for a polished athletic aesthetic.",
+        "details": {
+            "material": "Recycled polyester satin",
+            "care": "Machine wash cold, hang dry",
+            "warranty": "One year full quality guarantee"
+        }
     },
     {
         "id": "prod-012",
-        "title": "Noir Wide-Leg Trousers",
-        "price": 109,
-        "image_main": "/productd_hover.avif",
-        "image_hover": "/productd.avif",
-        "tag": "new",
-        "includeHome": true
+        "title": "Corded Overshirt",
+        "price": 95,
+        "originalPrice": 120,
+        "image_main": "/6.avif",
+        "image_hover": "/5.avif",
+        "includeHome": true,
+        "stock": 9,
+        "category": "Shirts",
+        "description": "A chunky-cord overshirt with tortoiseshell buttons and two chest patch pockets. Wear unbuttoned as a light jacket or comfortably layered over knitwear.",
+        "details": {
+            "material": "Thick cotton corduroy",
+            "care": "Machine wash cold, tumble dry low",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Caramel",
+                "hex": "#9B6A3A",
+                "image_main": "/6.avif",
+                "image_hover": "/5.avif"
+            },
+            {
+                "name": "Forest",
+                "hex": "#3B5243",
+                "image_main": "/3.avif",
+                "image_hover": "/4.avif"
+            },
+            {
+                "name": "Burgundy",
+                "hex": "#6B2737",
+                "image_main": "/1.avif",
+                "image_hover": "/2.avif"
+            }
+        ]
     },
     {
         "id": "prod-013",
-        "title": "Noir Wide-Leg Trousers",
-        "price": 109,
-        "image_main": "/productd_hover.avif",
-        "image_hover": "/productd.avif",
+        "title": "Soft Shell Anorak",
+        "price": 135,
+        "image_main": "/4.avif",
+        "image_hover": "/3.avif",
         "tag": "new",
-        "includeHome": true
+        "includeHome": true,
+        "stock": 4,
+        "category": "Outerwear",
+        "description": "A pullover anorak in a soft-shell fabric with a half-zip opening, kangaroo pocket, and adjustable hem drawcord. Lightweight protection for unpredictable weather.",
+        "details": {
+            "material": "Soft-shell technical fabric blend",
+            "care": "Machine wash cold, do not iron",
+            "warranty": "One year full quality guarantee"
+        }
     },
     {
         "id": "prod-014",
-        "title": "Noir Wide-Leg Trousers",
-        "price": 109,
-        "image_main": "/productd_hover.avif",
-        "image_hover": "/productd.avif",
-        "tag": "new",
-        "includeHome": true
+        "title": "Linen Utility Shirt",
+        "price": 68,
+        "originalPrice": 88,
+        "image_main": "/2.avif",
+        "image_hover": "/1.avif",
+        "includeHome": true,
+        "stock": 24,
+        "category": "Shirts",
+        "description": "A summer-ready linen shirt with a utility-inspired chest pocket and easy button-down collar. Effortlessly cool in warm weather, with a natural texture that softens over time.",
+        "details": {
+            "material": "100% French linen",
+            "care": "Machine wash cold, line dry, light iron",
+            "warranty": "One year full quality guarantee"
+        },
+        "colors": [
+            {
+                "name": "Natural",
+                "hex": "#D4C5A9",
+                "image_main": "/2.avif",
+                "image_hover": "/1.avif"
+            },
+            {
+                "name": "Sky",
+                "hex": "#8AACCC",
+                "image_main": "/full.avif",
+                "image_hover": "/hover.avif"
+            }
+        ]
     }
 ]

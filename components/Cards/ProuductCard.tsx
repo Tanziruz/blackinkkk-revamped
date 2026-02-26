@@ -1,11 +1,13 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import ProductImageSwitch from "../Buttons_And_Links/ProductImageSwitch";
 import { useState } from "react";
 import ProductPageArrow from "../Buttons_And_Links/ProductPageArrow";
 
 
 interface ProductCardProps {
+    id: string;
     image_main: string;
     image_hover: string;
     tag?: React.ReactNode;
@@ -14,9 +16,10 @@ interface ProductCardProps {
     originalPrice?: number;
 }
 
-export default function ProductCard({ image_main, image_hover, tag, title, price, originalPrice }: ProductCardProps) {
+export default function ProductCard({ id, image_main, image_hover, tag, title, price, originalPrice }: ProductCardProps) {
     const [hovered, setHovered] = useState(false);
     return (
+        <Link href={`/products/${id}`} className="block w-full h-fit">
         <div
             className="group w-full h-fit hover:cursor-pointer"
             onMouseEnter={() => setHovered(true)}
@@ -38,7 +41,9 @@ export default function ProductCard({ image_main, image_hover, tag, title, price
                 <div className="flex justify-between items-center ">
                     <div className="flex items-center gap-2">
                         <p className="font-Ronzino-Medium text-black text-[22px] tracking-[-0.03em] leading-[1.5em] mb-0">${price}</p>
-                        <p className="font-Ronzino-Medium text-gray-2 text-[15px] tracking-[-0.035em] leading-[1.5em] line-through">${originalPrice}</p>
+                        {originalPrice && (
+                            <p className="font-Ronzino-Medium text-gray-2 text-[15px] tracking-[-0.035em] leading-[1.5em] line-through">${originalPrice}</p>
+                        )}
                     </div>
                     <div className="flex items-center gap-2 relative bottom-4">
                         <ProductImageSwitch image={image_main} isActive={!hovered}/>
@@ -47,5 +52,6 @@ export default function ProductCard({ image_main, image_hover, tag, title, price
                     </div>
                 </div>
             </div>
+        </Link>
     );
 }

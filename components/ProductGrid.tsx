@@ -19,6 +19,7 @@ export default async function ProductGrid() {
             {products.map((product) => (
                 <ProductCard
                     key={product.id}
+                    id={product.id}
                     title={product.title}
                     price={product.price}
                     originalPrice={product.originalPrice}
