@@ -60,9 +60,8 @@
     }
 
     body{
-        @apply bg-bg;
+        @apply bg-bg overflow-x-hidden;
         /* @apply bg-black; */
-    @apply bg-background text-foreground overflow-x-hidden;
     }
 
     h1,h2,h3,h4,h5,p.t12,p.t13,p.t14,p.t15,p.t16,p.t18,p.t20,p.t22,p.t24{
@@ -212,8 +211,5 @@
         pointer-events: none;
         user-select: none;
         -webkit-user-drag: none;
-    }
-  * {
-    @apply border-border outline-ring/50;
     }
 }
