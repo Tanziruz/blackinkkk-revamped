@@ -4,7 +4,7 @@ import ConcaveCarousel from "../ConcaveCarousel";
 export default function StayConnected() {
 
     return (
-        <section className="py-12 sm:py-16 lg:py-20 flex flex-col gap-5 w-full ">
+        <section className="py-12 sm:py-16 lg:py-20 flex flex-col gap-5 w-full overflow-hidden">
             <div className="flex flex-col items-center gap-5 w-full">
                 <div className="flex items-center gap-2 bg-black text-white rounded-full px-4 py-1.5 text-[13px] font-Inter tracking-[-0.02em] select-none">
                     Stay connected

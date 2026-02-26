@@ -1,20 +1,9 @@
 "use client";
 
-import { allCountries } from "country-telephone-data";
-import { Mail, Phone, MapPin, ChevronDown, Search } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 import { z } from "zod";
-
-const countryList = allCountries
-    .filter((c) => c.priority === 0)
-    .map((c) => ({ iso2: c.iso2, name: c.name.replace(/\s*\(.*\)\s*$/, ""), dial: `+${c.dialCode}` }));
 
 const contactSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
@@ -108,7 +97,15 @@ export default function ContactForm() {
 
     const [dialCode, setDialCode] = useState("+91");
     const [phoneNum, setPhoneNum] = useState("");
-    const [countrySearch, setCountrySearch] = useState("");
+
+    function handleDialInput(val: string) {
+        const normalized = val.startsWith("+") ? val : "+" + val.replace(/^\++/, "");
+        setDialCode(normalized);
+        const full = (normalized + " " + phoneNum).trim();
+        setValues((prev) => ({ ...prev, phone: full }));
+        const result = contactSchema.shape.phone.safeParse(full);
+        if (result.success) setErrors((prev) => ({ ...prev, phone: undefined }));
+    }
 
     function set(field: keyof ContactFields) {
         return (v: string) => {
@@ -116,14 +113,6 @@ export default function ContactForm() {
             const result = contactSchema.shape[field].safeParse(v);
             if (result.success) setErrors((prev) => ({ ...prev, [field]: undefined }));
         };
-    }
-
-    function handleDialChange(code: string) {
-        setDialCode(code);
-        const full = (code + " " + phoneNum).trim();
-        setValues((prev) => ({ ...prev, phone: full }));
-        const result = contactSchema.shape.phone.safeParse(full);
-        if (result.success) setErrors((prev) => ({ ...prev, phone: undefined }));
     }
 
     function handlePhoneNum(num: string) {
@@ -192,56 +181,20 @@ export default function ContactForm() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <Field label="Email" type="email" placeholder="test@gmail.com" value={values.email} error={errors.email} onChange={set("email")} onBlur={blurField("email")} />
-                        {/* Phone — country dial-code dropdown + number input */}
+                        {/* Phone — code input + number input */}
                         <div className="flex flex-col gap-1.5">
                             <label className="font-Inter text-black text-[14px] tracking-[-0.02em] font-medium">Phone No</label>
                             <div className={`flex rounded-xl overflow-hidden bg-white transition ${
                                 errors.phone ? "ring-2 ring-red-400" : "focus-within:ring-2 focus-within:ring-black/10"
                             }`}>
-                                <DropdownMenu onOpenChange={() => setCountrySearch("")}>
-                                    <DropdownMenuTrigger asChild>
-                                        <button
-                                            type="button"
-                                            className="flex items-center gap-1.5 shrink-0 border-r border-black/10 px-3 py-3 font-Inter text-[14px] text-black tracking-[-0.02em] outline-none cursor-pointer hover:bg-black/3 transition"
-                                        >
-                                            {dialCode}
-                                            <ChevronDown size={13} className="text-black/50" />
-                                        </button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-72 overflow-hidden p-0" align="start">
-                                        <div className="px-2 pt-2 pb-1.5 border-b border-black/10 bg-popover">
-                                            <div className="flex items-center gap-2 rounded-lg bg-black/5 px-2.5 py-1.5">
-                                                <Search size={13} className="text-black/40 shrink-0" />
-                                                <input
-                                                    autoFocus
-                                                    type="text"
-                                                    placeholder="Search country or code..."
-                                                    value={countrySearch}
-                                                    onChange={(e) => setCountrySearch(e.target.value)}
-                                                    className="flex-1 bg-transparent font-Inter text-[13px] text-black placeholder:text-black/40 tracking-[-0.01em] outline-none"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="max-h-56 overflow-y-auto">
-                                            {countryList
-                                                .filter(
-                                                    (c) =>
-                                                        c.name.toLowerCase().includes(countrySearch.toLowerCase()) ||
-                                                        c.dial.includes(countrySearch)
-                                                )
-                                                .map((c) => (
-                                                    <DropdownMenuItem
-                                                        key={c.iso2}
-                                                        onSelect={() => handleDialChange(c.dial)}
-                                                        className="flex gap-2 items-center px-3 py-2 font-Inter text-[13px] tracking-[-0.01em] cursor-pointer rounded-none"
-                                                    >
-                                                        <span className="w-10 shrink-0 text-black/55">{c.dial}</span>
-                                                        <span className="text-black">{c.name}</span>
-                                                    </DropdownMenuItem>
-                                                ))}
-                                        </div>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
+                                <input
+                                    type="text"
+                                    value={dialCode}
+                                    onChange={(e) => handleDialInput(e.target.value)}
+                                    suppressHydrationWarning
+                                    placeholder="+91"
+                                    className="w-16 shrink-0 bg-transparent border-r border-black/10 pl-3 pr-1 py-3 font-Inter text-[14px] text-black tracking-[-0.02em] outline-none"
+                                />
                                 <input
                                     type="tel"
                                     placeholder="98103 67883"
