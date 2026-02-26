@@ -1,6 +1,7 @@
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/500.css";
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -50,6 +51,17 @@
     --color-beige: #EEEEEE;
     --color-orange: #FF6A00;
     --color-bg: #F8F8F8;
+
+    /* shadcn / radix token mappings */
+    --color-popover: #ffffff;
+    --color-popover-foreground: #1F1F1F;
+    --color-accent: #F4F4F4;
+    --color-accent-foreground: #1F1F1F;
+    --color-muted: #F4F4F4;
+    --color-muted-foreground: #787878;
+
+    /* background token used by shadcn Dialog / Popover */
+    --color-background: #ffffff;
 
 }
 

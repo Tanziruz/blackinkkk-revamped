@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next";
 import "./globals.css";
-import Nav from "@/components/Nav";
+import NavWrapper from "@/components/NavWrapper";
 import Footer from "@/components/Home/Footer";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Nav />
+        <NavWrapper />
         {children}
         <Footer />
         <Analytics />

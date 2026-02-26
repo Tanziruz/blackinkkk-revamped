@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Buttons_And_Links/Button";
 import Icon from "./Buttons_And_Links/Icon";
 import Nav_Link from "./Buttons_And_Links/NavLink";
+import SearchDialog from "./SearchDialog";
+import type { Product } from "@/types/product";
 
 const mobileLinks = ["Home", "About", "Shop", "Contact"] as const;
 
@@ -18,9 +20,10 @@ const navHrefs: Record<string, string> = {
     Contact: "/contact",
 };
 
-export default function NavBar() {
+export default function NavBar({ products = [] }: { products?: Product[] }) {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
     const pathname = usePathname();
 
     const isProductDetail = /^\/products\/.+/.test(pathname);
@@ -36,6 +39,7 @@ export default function NavBar() {
     const iconVariant = isLight ? "variant1" : "variant2";
 
     return (
+        <>
         <motion.nav
             className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
                 scrolled || menuOpen || isProductDetail ? "bg-white shadow-sm" : "bg-transparent"
@@ -75,7 +79,7 @@ export default function NavBar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <Icon icon={Search} variant={scrolled || isProductDetail ? "variant2" : "variant1"} />
+                    <Icon icon={Search} variant={scrolled || isProductDetail ? "variant2" : "variant1"} onClick={() => setSearchOpen(true)} />
                     <Button variant={scrolled || isProductDetail ? "btn2" : "btn1"} title="Shop All Items" href="/products" />
                 </motion.div>
             </div>
@@ -98,7 +102,7 @@ export default function NavBar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <Icon icon={Search} variant={iconVariant} />
+                    <Icon icon={Search} variant={iconVariant} onClick={() => setSearchOpen(true)} />
                     <motion.div
                         animate={{ rotate: menuOpen ? 135 : 0 }}
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -146,5 +150,8 @@ export default function NavBar() {
                 )}
             </AnimatePresence>
         </motion.nav>
+
+        <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} products={products} />
+        </>
     );
 }
