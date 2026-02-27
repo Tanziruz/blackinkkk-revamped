@@ -26,6 +26,7 @@ export default async function ProductGrid() {
                     image_main={product.image_main}
                     image_hover={product.image_hover}
                     tag={resolveTag(product.tag)}
+                    stock={product.stock}
                 />
             ))}
         </div>
