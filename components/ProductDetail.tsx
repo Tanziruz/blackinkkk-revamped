@@ -30,7 +30,7 @@ function WhatsAppIcon() {
 }
 
 const CONTACT_WHATSAPP = "919810367883"; // replace with real number (digits only)
-const CONTACT_EMAIL    = "hello@blackinkkk.com"; // replace with real email
+const CONTACT_EMAIL    = "Blackinkkk@aol.com"; // replace with real email
 const CONTACT_PHONE    = "+919810367883"; // replace with real phone
 
 const E = [0.22, 1, 0.36, 1] as const;
