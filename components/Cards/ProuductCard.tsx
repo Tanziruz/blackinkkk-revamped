@@ -25,11 +25,11 @@ export default function ProductCard({ id, image_main, image_hover, tag, title, p
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            <div id="product-image" className="relative w-full aspect-[373/420] rounded-2xl overflow-hidden px-2 pt-2">
+            <div id="product-image" className="relative w-full aspect-373/420 rounded-2xl overflow-hidden px-2 pt-2">
                 <div className="relative top-1 left-1 z-10">
                     {tag}
                 </div>
-                <div className="absolute right-[14px]  top-[14px] z-10">
+                <div className="absolute right-3.5  top-3.5 z-10">
                     <ProductPageArrow />
                 </div>
                 <Image src={image_main} alt="Product_Image" fill className="object-cover object-center transition-opacity duration-500 opacity-100 group-hover:opacity-0"/>

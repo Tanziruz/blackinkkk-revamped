@@ -4,7 +4,6 @@ export interface ProductColor {
     name: string;
     hex: string;
     image_main: string;
-    image_hover: string;
 }
 
 export interface ProductDetails {
@@ -17,7 +16,7 @@ export interface Product {
     id: string;
     title: string;
     price: number;
-    originalPrice?: number;
+    originalPrice: number;
     image_main: string;
     image_hover: string;
     tag?: ProductTag;
@@ -26,5 +25,5 @@ export interface Product {
     category?: string;
     description?: string;
     details?: ProductDetails;
-    colors?: ProductColor[];
+    colors: ProductColor[];
 }
