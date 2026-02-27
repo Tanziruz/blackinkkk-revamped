@@ -182,24 +182,14 @@ export default function ProductDetail({ product }: Props) {
                         )}
 
                         <motion.div {...entry(0.46)} className="mb-6">
-                            {product.stock > 10 ? (
-                                <p className="font-Inter text-[13px] font-medium" style={{ color: "#2E7D32" }}>
-                                    ✓ {product.stock} in stock
-                                </p>
-                            ) : product.stock > 0 ? (
-                                <p className="font-Inter text-[13px] font-medium" style={{ color: "#E65100" }}>
-                                    ⚠ Only {product.stock} left in stock
-                                </p>
-                            ) : (
-                                <p className="font-Inter text-[13px] font-medium" style={{ color: "#C62828" }}>
-                                    ✗ Out of stock
-                                </p>
-                            )}
+                            <p className="font-Inter text-[13px] font-medium text-black/50">
+                                {product.stock} in stock
+                            </p>
                         </motion.div>
 
                         <motion.button
                             {...entry(0.54)}
-                            className={`btn-anim w-full bg-black text-white font-Inter text-[15px] md:text-[16px] tracking-[-0.02em] leading-[1.5em] py-4 rounded-full hover:bg-black/85 active:scale-[0.99] transition-all duration-200 mb-7 cursor-pointer ${
+                            className={`btn-anim justify-center w-full bg-black text-white text-center font-Inter text-[15px] md:text-[16px] tracking-[-0.02em] leading-[1.5em] py-4 rounded-full hover:bg-black/85 active:scale-[0.99] transition-all duration-200 mb-7 cursor-pointer ${
                                 product.stock === 0 ? "opacity-50 pointer-events-none" : ""
                             }`}
                             disabled={product.stock === 0}

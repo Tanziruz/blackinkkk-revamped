@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavWrapper from "@/components/NavWrapper";
 import Footer from "@/components/Home/Footer";
+import LayoutShell from "@/components/LayoutShell";
 
 export const metadata: Metadata = {
   title: "BLACKINKKK",
@@ -17,9 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavWrapper />
-        {children}
-        <Footer />
+        <LayoutShell nav={<NavWrapper />} footer={<Footer />}>
+          {children}
+        </LayoutShell>
         <Analytics />
       </body>
     </html>
